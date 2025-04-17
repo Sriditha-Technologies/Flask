@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Upload Files</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+        <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+    </head>
+    <body>
+        <div class="col-md-offset-3 col-md-5" style="margin-top:80px">
+            <form action="/" method="POST" enctype="multipart/form-data">
+                <h3 class="page-header text-primary text-center">Upload Files</h3>
+                {% with messages=get_flashed_messages(with_categories=true) %}
+                   {% if messages %}
+                       {% for category,message in messages %}
+                            <div class="alert alert-{{category}}" role="alert">
+                               {{message}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                    <label>Browse pdf file</label>
+                    <input type="file" class="form-control" name="upload_pdf">
+                </div>
+                <div class="form-group">
+                    <label>Browse videos file</label>
+                    <input type="file" class="form-control" name="upload_videos">
+                </div>
+                <div class="form-group">
+                    <label>Browse document file</label>
+                    <input type="file" class="form-control" name="upload_document">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Upload Files" class="btn btn-success btn-block">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
+<script>
+    $(document).ready(function(){
+        $(".alert").hide(4000);
+    });
+</script>

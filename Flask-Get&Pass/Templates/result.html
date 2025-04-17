@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Output</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    </head>
+    <body>
+        <div class="col-md-offset-3 col-md-4">
+            <h2 class="page-header text-primary text-center">Output</h2>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Name</th>
+                    <td>{{name}}</td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>{{age}}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>{{address}}</td>
+                </tr>
+                     <th>Contact</th>
+                     <td>{{contact}}</td>
+                <tr>
+                    <th>Email</th>
+                    <td>{{email}}</td>
+                </tr>    
+            </table>
+            <form action="">
+                <input type="submit" value="Back to Home page" class="btn btn-primary">
+            </form>
+        </div>
+    </body>
+</html>
+               

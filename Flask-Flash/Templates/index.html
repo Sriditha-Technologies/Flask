@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Flash Message</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+        <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script> 
+    </head>
+    <body>
+        <div class="container" style="margin-top:100px;">
+            <div class="col-md-7">
+                <h3 class="page-header text-primary text-center">Flash Message</h3>
+                {% with messages=get_flashed_messages(with_categories=true)%}
+                     {% if message %}
+                        {% for category,message in messages %}
+                            <div class="alert alert-{{category}}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form method="POST" action="/">
+                    <input type="submit" value="success" name="success" class="btn btn-success">
+                    <input type="submit" value="warning" name="warning" class="btn btn-warning">
+                    <input type="submit" value="primary" name="primary" class="btn btn-primary">
+                    <input type="submit" value="secondary" name="secondary" class="btn btn-secondary">
+                    <input type="submit" value="info" name="info" class="btn btn-info">
+                    <input type="submit" value="danger" name="danger" class="btn btn-danger">
+                    <input type="submit" value="dark" name="dark" class="btn btn-dark">
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(document).ready(function(){
+            $(".alert").hide(4000);
+        });
+    </script>
+
+</html>
