@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Image</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+        <script src="{{url_for('static',filename='myfont/css/all.min.css')}}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-md-offset-3 col-md-4 >
+                <h3 class="page-header text-primary text-center"><i class="fa fa-images">Image(Flask Bootstrap)</i></h3>
+                {% with messages=get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category,message in messages %}
+                             <div class="alert alert-{{category}}" role="alert">
+                                {{message}}
+                             </div>
+                         {% endfor %}
+                     {% endif %}
+                 {% endwith %}
+                <div class="col-md-3">
+                    <image src="{{url_for('static',filename='image/1.jpg')}}" class="image image-rounded">
+                </div>
+                <div class="col-md-4">
+                    <image src="{{url_for('static',filename='image/2.jpg')}}" class="image image-circle">
+                </div>
+                <div class="col-md-7">
+                    <image src="{{url_for('static',filename='image/3.jpg')}}" class="image image-thumbnail">
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(document).ready(function(){
+            $(".alert").hide(4000);
+        });
+    </script>
+</html>
